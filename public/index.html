@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bloomington Babysitting Co-op</title>
+  <meta name="description" content="A non-profit babysitting cooperative serving Bloomington, MN families since 1954. Exchange safe, reliable childcare. No money, just time." />
+  <link rel="icon" type="image/png" href="logo.png" />
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS v4 (CDN browser build) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @theme {
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    /* ── Scroll-reveal animations ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-32px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(32px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible, .reveal-left.visible, .reveal-right.visible {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    /* ── Hero load-in animation ── */
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-item {
+      opacity: 0;
+      animation: heroFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* ── Chevron bounce ── */
+    @keyframes chevronBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(8px); }
+    }
+    .chevron-bounce {
+      animation: chevronBounce 1.8s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body class="antialiased bg-white text-gray-800" style="font-family: 'Inter', system-ui, sans-serif;">
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden text-white">
+
+    <!-- Background photo (Pexels - children on slide at park) -->
+    <img
+      src="https://images.pexels.com/photos/10044860/pexels-photo-10044860.jpeg?auto=compress&cs=tinysrgb&w=1920"
+      alt=""
+      aria-hidden="true"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <!-- Dark indigo overlay -->
+    <div class="absolute inset-0 bg-indigo-950/65"></div>
+
+    <!-- Hero content -->
+    <div class="relative z-10 max-w-2xl mx-auto px-6 py-32 text-center">
+      <img
+        src="logo.png"
+        alt="Bloomington Babysitting Co-op Logo"
+        class="hero-item h-75 w-75 mx-auto mb-8 drop-shadow-2xl"
+        style="animation-delay: 0.05s;"
+      />
+      <h1
+        class="hero-item text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-4"
+        style="animation-delay: 0.2s;"
+      >
+        Bloomington Babysitting Co-op
+      </h1>
+      <p
+        class="hero-item text-indigo-200 text-lg sm:text-xl font-medium mb-6"
+        style="animation-delay: 0.35s;"
+      >
+        Families sharing childcare since 1954
+      </p>
+      <p
+        class="hero-item text-white/80 text-base sm:text-lg leading-relaxed max-w-lg mx-auto mb-12"
+        style="animation-delay: 0.5s;"
+      >
+        A trusted, non-profit cooperative of up to 30 Bloomington Minnesota families
+        exchanging safe, reliable childcare with no money changing hands. Just time.
+      </p>
+      <div
+        class="hero-item flex flex-col sm:flex-row items-center justify-center gap-4"
+        style="animation-delay: 0.65s;"
+      >
+        <a
+          href="#about"
+          class="w-full sm:w-auto inline-block bg-white text-indigo-800 font-semibold px-8 py-3.5 rounded-full hover:bg-indigo-50 active:scale-95 transition-all shadow-lg"
+        >
+          Learn More
+        </a>
+        <a
+          href="#membership"
+          class="w-full sm:w-auto inline-block border-2 border-white/60 text-white font-semibold px-8 py-3.5 rounded-full hover:border-white hover:bg-white/10 active:scale-95 transition-all"
+        >
+          Join the Co-op
+        </a>
+      </div>
+    </div>
+
+    <!-- Animated scroll chevron -->
+    <a
+      href="#about"
+      aria-label="Scroll to content"
+      class="hero-item absolute bottom-8 left-1/2 text-white/50 hover:text-white/80 transition-colors chevron-bounce"
+      style="animation-delay: 1.0s;"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+      </svg>
+    </a>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       ABOUT
+  ══════════════════════════════════════════ -->
+  <section id="about" class="py-24 lg:py-32 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- What is the Co-op - text + image side-by-side -->
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24 lg:mb-32">
+        <div class="reveal-left">
+          <p class="text-indigo-600 font-semibold text-sm uppercase tracking-widest mb-3">About the Co-op</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-6">
+            What is the Co-op?
+          </h2>
+          <div class="space-y-4 text-gray-600 leading-relaxed text-lg">
+            <p>
+              The Babysitting Cooperative is a well-established, non-profit organization comprised of up to
+              30 Bloomington, Minnesota families that exchange safe, reliable, short-term childcare with
+              each other. <strong class="text-gray-800">No money ever changes hands; we trade our time.</strong>
+            </p>
+            <p>
+              Active since 1954, the Co-op exists to enable parents to be away from their children without
+              concern for their welfare and without financial restrictions.
+            </p>
+            <p>
+              Before joining, consider your ability to give back: you'll need to sit roughly as often as you go out.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="reveal-right"
+          style="transition-delay: 120ms;"
+        >
+          <div class="relative">
+            <div class="absolute -inset-4 bg-indigo-50 rounded-3xl"></div>
+            <img
+              src="https://images.pexels.com/photos/6437458/pexels-photo-6437458.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Child reading a picture book"
+              class="relative rounded-2xl shadow-xl w-full h-80 object-cover"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- How is it used? -->
+      <div>
+        <div class="reveal text-center max-w-2xl mx-auto mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-4">
+            How is it used?
+          </h2>
+          <p class="text-gray-600 text-lg leading-relaxed">
+            Sits can be arranged for weekdays, weeknights, and any time of day or night.
+            The unit of exchange is the <strong class="text-gray-800">hour per family</strong> (not per child).
+          </p>
+          <p class="text-indigo-600 font-semibold text-sm uppercase tracking-widest mt-6">Could you use some time for…</p>
+        </div>
+
+        <!-- Use-case cards with staggered reveal -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+          <div class="reveal flex items-center gap-4 bg-gray-50 hover:bg-indigo-50 border border-gray-100 rounded-xl p-5 transition-colors" style="transition-delay: 200ms;">
+            <span class="text-2xl flex-shrink-0">🤝</span>
+            <p class="text-gray-700 font-medium leading-snug">Volunteering at school or church</p>
+          </div>
+          <div class="reveal flex items-center gap-4 bg-gray-50 hover:bg-indigo-50 border border-gray-100 rounded-xl p-5 transition-colors" style="transition-delay: 50ms;">
+            <span class="text-2xl flex-shrink-0">🛒</span>
+            <p class="text-gray-700 font-medium leading-snug">Grocery shopping or errands</p>
+          </div>
+          <div class="reveal flex items-center gap-4 bg-gray-50 hover:bg-indigo-50 border border-gray-100 rounded-xl p-5 transition-colors" style="transition-delay: 100ms;">
+            <span class="text-2xl flex-shrink-0">✂️</span>
+            <p class="text-gray-700 font-medium leading-snug">Hair or doctor appointments</p>
+          </div>
+          <div class="reveal flex items-center gap-4 bg-gray-50 hover:bg-indigo-50 border border-gray-100 rounded-xl p-5 transition-colors" style="transition-delay: 250ms;">
+            <span class="text-2xl flex-shrink-0">🏡</span>
+            <p class="text-gray-700 font-medium leading-snug">Working on house projects</p>
+          </div>
+          <div class="reveal flex items-center gap-4 bg-gray-50 hover:bg-indigo-50 border border-gray-100 rounded-xl p-5 transition-colors" style="transition-delay: 150ms;">
+            <span class="text-2xl flex-shrink-0">🎟️</span>
+            <p class="text-gray-700 font-medium leading-snug">Attending a concert or event</p>
+          </div>
+          <div class="reveal flex items-center gap-4 bg-gray-50 hover:bg-indigo-50 border border-gray-100 rounded-xl p-5 transition-colors" style="transition-delay: 300ms;">
+            <span class="text-2xl flex-shrink-0">💑</span>
+            <p class="text-gray-700 font-medium leading-snug">Date night!</p>
+          </div>
+        </div>
+
+        <div class="reveal max-w-3xl mx-auto text-center" style="transition-delay: 350ms;">
+          <p class="text-gray-600 text-base leading-relaxed">
+            The Co-op is a tremendous childcare resource for day-to-day activities, though not a replacement
+            for regular daycare. Some members sit primarily during the day, others evenings and weekends.
+            It is especially valuable for families who don’t have many relatives available to assist with
+            their babysitting needs, or want to enjoy going out without imposing on their family or friends.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       MEMBERSHIP
+  ══════════════════════════════════════════ -->
+  <section id="membership" class="py-24 lg:py-32 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div>
+        <div class="reveal text-center max-w-2xl mx-auto mb-16">
+          <p class="text-indigo-600 font-semibold text-sm uppercase tracking-widest mb-3">Membership</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-4">Joining the Co-op</h2>
+          <p class="text-gray-600 text-lg leading-relaxed">
+            The Co-op is limited to 30 families. All prospective members must meet eligibility
+            requirements and complete the interview process.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-10 items-start">
+
+          <!-- Eligibility requirements card -->
+          <div
+            class="reveal-left bg-white rounded-2xl shadow-sm border border-gray-100 p-8 lg:p-10"
+            style="transition-delay: 100ms;"
+          >
+            <h3 class="text-xl font-bold text-gray-900 mb-7">Eligibility Requirements</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3.5">
+                <span class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-indigo-100 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-indigo-700" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="text-gray-600 leading-snug">Bloomington, Minnesota resident</span>
+              </li>
+
+              <li class="flex items-start gap-3.5">
+                <span class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-indigo-100 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-indigo-700" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="text-gray-600 leading-snug">A one-time security deposit of $50, refunded when membership is withdrawn</span>
+              </li>
+
+              <li class="flex items-start gap-3.5">
+                <span class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-indigo-100 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-indigo-700" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="text-gray-600 leading-snug">Annual dues of $10 to cover operational expenses</span>
+              </li>
+
+              <li class="flex items-start gap-3.5">
+                <span class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-indigo-100 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-indigo-700" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="text-gray-600 leading-snug">Successful completion of home interviews, reference checks, and background check</span>
+              </li>
+
+              <li class="flex items-start gap-3.5">
+                <span class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-indigo-100 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-indigo-700" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="text-gray-600 leading-snug">Involvement with at least one exchange of babysitting each month</span>
+              </li>
+
+              <li class="flex items-start gap-3.5">
+                <span class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-indigo-100 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-indigo-700" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="text-gray-600 leading-snug">A monthly contribution of one hour divided between the chair and monthly secretary</span>
+              </li>
+
+              <li class="flex items-start gap-3.5">
+                <span class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-indigo-100 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-indigo-700" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="text-gray-600 leading-snug">Attendance at the annual meeting and either the spring or fall social</span>
+              </li>
+
+            </ul>
+          </div>
+
+          <!-- How to apply + CTA -->
+          <div
+            class="reveal-right"
+            style="transition-delay: 200ms;"
+          >
+            <h3 class="text-xl font-bold text-gray-900 mb-7">How to Apply</h3>
+            <ol class="space-y-7">
+
+              <li class="flex gap-5">
+                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-600 text-white font-bold text-sm flex items-center justify-center shadow-sm">1</div>
+                <div class="pt-1">
+                  <p class="font-semibold text-gray-900 mb-1">Phone Interview</p>
+                  <p class="text-gray-600 text-sm leading-relaxed">Membership is on a first-come, first-served basis. The process begins with a brief phone interview with the Vice Chair.</p>
+                </div>
+              </li>
+
+              <li class="flex gap-5">
+                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-600 text-white font-bold text-sm flex items-center justify-center shadow-sm">2</div>
+                <div class="pt-1">
+                  <p class="font-semibold text-gray-900 mb-1">In-Home Interview</p>
+                  <p class="text-gray-600 text-sm leading-relaxed">An in-home interview with the Vice Chair follows the initial phone call.</p>
+                </div>
+              </li>
+
+              <li class="flex gap-5">
+                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-600 text-white font-bold text-sm flex items-center justify-center shadow-sm">3</div>
+                <div class="pt-1">
+                  <p class="font-semibold text-gray-900 mb-1">Application</p>
+                  <p class="text-gray-600 text-sm leading-relaxed">Complete and return a membership application to the Vice Chair for review.</p>
+                </div>
+              </li>
+
+              <li class="flex gap-5">
+                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-600 text-white font-bold text-sm flex items-center justify-center shadow-sm">4</div>
+                <div class="pt-1">
+                  <p class="font-semibold text-gray-900 mb-1">Member Interview &amp; Background Check</p>
+                  <p class="text-gray-600 text-sm leading-relaxed">A current Co-op member conducts a second interview. References are contacted and a background check is completed on all adult family members.</p>
+                </div>
+              </li>
+
+            </ol>
+          </div>
+
+        </div>
+
+        <!-- CTA - full width, centered -->
+        <div class="reveal mt-10 rounded-2xl bg-indigo-600 p-8 text-white text-center" style="transition-delay: 300ms;">
+          <p class="font-semibold text-lg mb-1">Ready to get started?</p>
+          <p class="text-indigo-100 text-sm mb-5">Contact us to learn more about availability and next steps.</p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a
+              href="mailto:bloomingtonbabysitting@gmail.com"
+              class="inline-flex items-center justify-center gap-2 bg-white text-indigo-700 font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-indigo-50 active:scale-95 transition-all"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Email Us
+            </a>
+            <a
+              href="https://www.facebook.com/BloomingtonBabysitting/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 bg-[#1877F2] hover:bg-[#166FE5] text-white font-semibold text-sm px-5 py-2.5 rounded-full active:scale-95 transition-all"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+              Facebook
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    // Scroll-reveal via IntersectionObserver (no framework dependency)
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+      revealObserver.observe(el);
+    });
+  </script>
+
+</body>
+</html>
